@@ -102,17 +102,125 @@ namespace LINQSession2
 
             #region Zipping Operators
 
-            //zip()
-            string[] names = { "Ahmed", "Omar", "Mai" ,"Hossam" };
-            int[] ages = Enumerable.Range(1,10).ToArray();
-            char[] firstCharOfNames = { 'A', 'O', 'M','H','E' };
+            // //zip()
+            // string[] names = { "Ahmed", "Omar", "Mai" ,"Hossam" };
+            // int[] ages = Enumerable.Range(1,10).ToArray();
+            // char[] firstCharOfNames = { 'A', 'O', 'M','H','E' };
 
-            //var res = names.Zip(firstCharOfNames);
-           var res= names.Zip(ages, firstCharOfNames);
-            foreach (var item in res)
-            {
-                Console.WriteLine(item);
-            }
+            // //var res = names.Zip(firstCharOfNames);
+            //var res= names.Zip(ages, firstCharOfNames);
+            // foreach (var item in res)
+            // {
+            //     Console.WriteLine(item);
+            // }
+
+            #endregion
+
+            #region Grouping Operator 
+
+            #region Get product Grouped by Category 
+            //fluent syntax
+            //var products = ListGenerator.ProductsList.GroupBy(P => P.Category);
+            //query syntax
+            //var products = from product in ListGenerator.ProductsList
+            //                group product by product.Category;
+
+            //foreach (var group in products)
+            //{
+            //    Console.WriteLine($"Category : {group.Key} ");
+            //    foreach (var product in group)
+            //    {
+            //        Console.WriteLine($"\t Product Name : {product.ProductName} ");
+            //    }
+            //}
+
+            #endregion
+
+            #region Get product out stock Grouped by Category
+
+
+            //fluent syntax
+            //var products = ListGenerator.ProductsList
+            //    .Where(P => P.UnitsInStock == 0)
+            //    .GroupBy(P => P.Category);
+
+            //query syntax
+            //var products = from product in ListGenerator.ProductsList
+            //               where product.UnitsInStock == 0
+            //               group product by product.Category;
+
+
+            //foreach (var group in products)
+            //{
+            //    Console.WriteLine($"Category : {group.Key} ");
+            //    foreach (var product in group)
+            //    {
+            //        Console.WriteLine($"\t Product Name : {product.ProductName} ");
+            //    }
+            //}
+
+            #endregion
+
+            #region Get prouct in stock grouped by category that contain more than 10 products
+
+            //fluent syntax
+            //var products = ListGenerator.ProductsList
+            //    .Where(P => P.UnitsInStock > 0)
+            //    .GroupBy(P => P.Category)
+            //    .Where(P => P.Count() > 10);
+
+            //query syntax
+            //var products = from product in ListGenerator.ProductsList
+            //               where product.UnitsInStock > 0
+            //               group product by product.Category
+            //               into prodGroup
+            //               where prodGroup.Count() > 10
+            //               select prodGroup;
+
+
+
+            //foreach (var category in products)
+            //{
+            //    Console.WriteLine($"Category : {category.Key} ");
+            //    foreach (var product in category)
+            //    {
+            //        Console.WriteLine($"\t Product Name : {product.ProductName} ");
+            //    }
+            //}
+
+            #endregion
+
+            #region Get Category name of products in stock that contain more than 10 products and number of product in each category
+            //fluent syntax
+            //var products = ListGenerator.ProductsList
+            //    .Where(P => P.UnitsInStock > 0)
+            //    .GroupBy(P => P.Category)
+            //    .Where(C => C.Count() > 10)
+            //    .Select(X => new
+            //    {
+            //        CategoryName = X.Key,
+            //        NumberOfProducts = X.Count()
+            //    });
+            //query syntax
+            //var products = from product in ListGenerator.ProductsList
+            //               where product.UnitsInStock > 0
+            //               group product by product.Category
+            //               into prodGroup
+            //               where prodGroup.Count() > 10
+            //               select new
+            //               {
+            //                   CategoryName = prodGroup.Key,
+            //                   NumberOfProducts = prodGroup.Count()
+            //               };
+
+
+            //foreach (var category in products)
+            //{
+            //    Console.WriteLine( category);
+               
+            //}
+
+            #endregion
 
             #endregion
         }
