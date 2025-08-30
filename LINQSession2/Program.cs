@@ -49,20 +49,42 @@ namespace LINQSession2
             #region Generation Operators 
 
             //deferred execution
-            //fluent syntax
-            var Res=Enumerable.Range(0, 100);
-            Res=Enumerable.Repeat(3, 100);
-            var list = Enumerable.Empty<Product>();
-            //               ==
-            List<Product> list2 = new List<Product>();
+            ////fluent syntax
+            //var Res=Enumerable.Range(0, 100);
+            //Res=Enumerable.Repeat(3, 100);
+            //var list = Enumerable.Empty<Product>();
+            ////               ==
+            //List<Product> list2 = new List<Product>();
 
-            foreach (var item in Res)
-            {
-                Console.Write(item);
-            }
+            //foreach (var item in Res)
+            //{
+            //    Console.Write(item);
+            //}
 
 
             #endregion
+
+            #region Set Operators[Union Family]
+
+            var list1 = Enumerable.Range(0, 100);
+            var list2 = Enumerable.Range(50, 100);
+
+            var Result= list1.Union(list2);
+            //Result= list1.Concat(list2);
+            //Result= list1.Intersect(list2);
+            //Result= list1.Except(list2);
+
+            Result = list1.Concat(list2);
+            Result = Result.Distinct();
+            foreach (var item in Result)
+            {
+                Console.Write(item+" ");
+            }
+
+            #endregion
+
         }
+
+
     }
 }
