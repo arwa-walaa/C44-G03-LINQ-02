@@ -89,16 +89,32 @@ namespace LINQSession2
             ////var products = ListGenerator.ProductsList.All(P => P.UnitsInStock >= 0);
             //Console.Write(products );
 
-            var list1 = Enumerable.Range(0, 100);
-            var list2 = Enumerable.Range(0, 100);
+            //var list1 = Enumerable.Range(0, 100);
+            //var list2 = Enumerable.Range(0, 100);
 
-            var res = list1.SequenceEqual(list2);
-            Console.Write(res);
+            //var res = list1.SequenceEqual(list2);
+            //Console.Write(res);
 
 
 
             #endregion
 
+
+            #region Zipping Operators
+
+            //zip()
+            string[] names = { "Ahmed", "Omar", "Mai" ,"Hossam" };
+            int[] ages = Enumerable.Range(1,10).ToArray();
+            char[] firstCharOfNames = { 'A', 'O', 'M','H','E' };
+
+            //var res = names.Zip(firstCharOfNames);
+           var res= names.Zip(ages, firstCharOfNames);
+            foreach (var item in res)
+            {
+                Console.WriteLine(item);
+            }
+
+            #endregion
         }
 
 
