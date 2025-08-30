@@ -1,6 +1,7 @@
 ﻿using Day_01_G03;
 using System.Collections;
 using System.ComponentModel.DataAnnotations;
+using System.Text.RegularExpressions;
 
 namespace LINQSession2
 {
@@ -256,20 +257,56 @@ namespace LINQSession2
             //}
 
             //takewhile()
-           
-            int[] nums = { 8, 6, 7, 3,1,2,4 ,8 };
-            var res = nums.TakeWhile((N,I) => N > I  );
 
-            //skipwhile()
-            res = nums.SkipWhile(N => N % 3 !=0);
+            //int[] nums = { 8, 6, 7, 3,1,2,4 ,8 };
+            //var res = nums.TakeWhile((N,I) => N > I  );
+
+            ////skipwhile()
+            //res = nums.SkipWhile(N => N % 3 !=0);
+
+            //foreach (var item in res)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+
+
+            #endregion
+
+            #region Let & Into
+
+            List<string> names = new List<string>()
+            {
+                "Ahmed",
+                "Omar",
+                "Mai",
+                "Hossam",
+                "Eman",
+                "Ali",
+                "Huda"
+            };
+            //remove Vowel char
+            //into
+            //var res = from name in names
+            //          select Regex.Replace(name, "[AOUIEaouie]", string.Empty)
+            //          into NoVowelNammes
+            //          where NoVowelNammes.Length > 3
+            //          select NoVowelNammes;
+
+            //let
+            var res = from name in names
+                    let NoVowelNammes=   Regex.Replace(name, "[AOUIEaouie]", string.Empty)
+                    
+                      where NoVowelNammes.Length > 3
+                      select NoVowelNammes;
 
             foreach (var item in res)
             {
                 Console.WriteLine(item);
             }
 
-           
-         
+
+
             #endregion
         }
 
