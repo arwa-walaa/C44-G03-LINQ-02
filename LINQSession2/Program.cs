@@ -1,5 +1,6 @@
 ﻿using Day_01_G03;
 using System.Collections;
+using System.ComponentModel.DataAnnotations;
 
 namespace LINQSession2
 {
@@ -42,6 +43,24 @@ namespace LINQSession2
             //}
 
             #endregion
+
+            #endregion
+
+            #region Generation Operators 
+
+            //deferred execution
+            //fluent syntax
+            var Res=Enumerable.Range(0, 100);
+            Res=Enumerable.Repeat(3, 100);
+            var list = Enumerable.Empty<Product>();
+            //               ==
+            List<Product> list2 = new List<Product>();
+
+            foreach (var item in Res)
+            {
+                Console.Write(item);
+            }
+
 
             #endregion
         }
