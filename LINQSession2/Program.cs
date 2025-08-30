@@ -217,11 +217,59 @@ namespace LINQSession2
             //foreach (var category in products)
             //{
             //    Console.WriteLine( category);
-               
+
             //}
 
             #endregion
 
+            #endregion
+
+            #region Partitioning Operatprs 
+            //take()
+            //var products = ListGenerator.ProductsList.Take(10);
+            //var products = ListGenerator.ProductsList.Where(P=>P.UnitsInStock==0).Take(1);
+
+            //skip()
+            //var products = ListGenerator.ProductsList.Skip(10).Skip(10);
+            //TakeLast()
+            //var products = ListGenerator.ProductsList.TakeLast(10);
+            //SkipLast()
+            //var products = ListGenerator.ProductsList.SkipLast(10);
+            //var page1 = ListGenerator.ProductsList.Take(10);
+            //var page2 = ListGenerator.ProductsList.Skip(10).Take(10);
+            //var page3 = ListGenerator.ProductsList.Skip(20).Take(10);
+
+            //Console.WriteLine("Page 1");
+            //foreach (var product in page1)
+            //{
+            //    Console.WriteLine(product);
+            //}
+            //Console.WriteLine("Page 2");
+            //foreach (var product in page2)
+            //{
+            //    Console.WriteLine(product);
+            //}
+            //Console.WriteLine("Page 3");
+            //foreach (var product in page3)
+            //{
+            //    Console.WriteLine(product);
+            //}
+
+            //takewhile()
+           
+            int[] nums = { 8, 6, 7, 3,1,2,4 ,8 };
+            var res = nums.TakeWhile((N,I) => N > I  );
+
+            //skipwhile()
+            res = nums.SkipWhile(N => N % 3 !=0);
+
+            foreach (var item in res)
+            {
+                Console.WriteLine(item);
+            }
+
+           
+         
             #endregion
         }
 
