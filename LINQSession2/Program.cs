@@ -66,20 +66,36 @@ namespace LINQSession2
 
             #region Set Operators[Union Family]
 
+            //var list1 = Enumerable.Range(0, 100);
+            //var list2 = Enumerable.Range(50, 100);
+
+            //var Result= list1.Union(list2);
+            ////Result= list1.Concat(list2);
+            ////Result= list1.Intersect(list2);
+            ////Result= list1.Except(list2);
+
+            //Result = list1.Concat(list2);
+            //Result = Result.Distinct();
+            //foreach (var item in Result)
+            //{
+            //    Console.Write(item+" ");
+            //}
+
+            #endregion
+
+            #region Quantifire Operators
+
+            //var products = ListGenerator.ProductsList.Any(P=>P.UnitsInStock>1000);
+            ////var products = ListGenerator.ProductsList.All(P => P.UnitsInStock >= 0);
+            //Console.Write(products );
+
             var list1 = Enumerable.Range(0, 100);
-            var list2 = Enumerable.Range(50, 100);
+            var list2 = Enumerable.Range(0, 100);
 
-            var Result= list1.Union(list2);
-            //Result= list1.Concat(list2);
-            //Result= list1.Intersect(list2);
-            //Result= list1.Except(list2);
+            var res = list1.SequenceEqual(list2);
+            Console.Write(res);
 
-            Result = list1.Concat(list2);
-            Result = Result.Distinct();
-            foreach (var item in Result)
-            {
-                Console.Write(item+" ");
-            }
+
 
             #endregion
 
