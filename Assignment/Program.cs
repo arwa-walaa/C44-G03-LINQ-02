@@ -1,4 +1,10 @@
-﻿namespace Assignment
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Runtime.Intrinsics.X86;
+using System.Text.RegularExpressions;
+using static System.Net.Mime.MediaTypeNames;
+
+namespace Assignment
 {
     internal class Program
     {
@@ -313,6 +319,75 @@
 
             #endregion
 
+
+            #endregion
+
+            #region LINQ – Grouping Operators
+
+            #region Use group by to partition a list of numbers by their remainder when divided by 5
+
+            //List<int> numbers = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 };
+
+            //var groupedByRemainder = from n in numbers
+            //                         group n by n % 5 into g
+            //                         select new
+            //                         {
+            //                             Remainder = g.Key,
+            //                             Numbers = g.ToList()
+            //                         };
+            //foreach (var group in groupedByRemainder)
+            //{
+            //    System.Console.WriteLine($"Numbers with a remainder of {group.Remainder} when divided by 5:");
+            //    foreach (var number in group.Numbers)
+            //    {
+            //        System.Console.WriteLine(number);
+            //    }
+            //}
+
+
+            #endregion
+
+            #region Uses group by to partition a list of words by their first letter. Use dictionary_english.txt for Input
+
+            //var groupedByFirstLetter = from word in ListGenerator.DictionaryWords
+            //                           group word by char.ToUpper(word[0]) into g
+            //                           select new
+            //                           {
+            //                               FirstLetter = g.Key,
+            //                               Words = g.ToList()
+            //                           };
+            //foreach (var group in groupedByFirstLetter)
+            //{
+            //    System.Console.WriteLine($"Words that start with the letter '{group.FirstLetter}':");
+            //    foreach (var word in group.Words)
+            //    {
+            //        System.Console.WriteLine(word);
+            //    }
+            //}
+
+
+
+            #endregion
+
+            #region Consider this Array as an Input ,  Use Group By with a custom comparer that matches words that are consists of the same Characters Together
+            
+            string[] Arr = { "from", "salt", "earn", " last", "near", "form" };
+            var groupedByAnagrams = from word in Arr
+                                    group word by new string(word.OrderBy(c => c).ToArray()) into g
+                                    select new
+                                    {
+                                        Key = g.Key,
+                                        Words = g.ToList()
+                                    };
+            foreach (var group in groupedByAnagrams)
+            {
+                Console.WriteLine($"Anagram Group: {string.Join(", ", group.Words)}");
+            }
+
+
+
+
+            #endregion
 
             #endregion
         }
