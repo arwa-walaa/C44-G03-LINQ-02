@@ -106,17 +106,90 @@
 
             #region Get the average price of each category's products.
 
-            var averagePriceByCategory = from p in ListGenerator.ProductsList
-                                         group p by p.Category into g
-                                         select new
-                                         {
-                                             Category = g.Key,
-                                             AveragePrice = g.Average(p => p.UnitPrice)
-                                         };
-            foreach (var item in averagePriceByCategory)
-            {
-                Console.WriteLine($"Category: {item.Category}, Average Price: {item.AveragePrice:C}");
-            }
+            //var averagePriceByCategory = from p in ListGenerator.ProductsList
+            //                             group p by p.Category into g
+            //                             select new
+            //                             {
+            //                                 Category = g.Key,
+            //                                 AveragePrice = g.Average(p => p.UnitPrice)
+            //                             };
+            //foreach (var item in averagePriceByCategory)
+            //{
+            //    Console.WriteLine($"Category: {item.Category}, Average Price: {item.AveragePrice:C}");
+            //}
+
+
+            #endregion
+
+            #endregion
+
+            #region LINQ - Set Operators
+
+            #region Find the unique Category names from Product List
+
+            //var uniqueCategories = (from p in ListGenerator.ProductsList
+            //                        select p.Category).Distinct();
+            //foreach (var category in uniqueCategories)
+            //{
+            //    Console.WriteLine(category);
+            //}
+
+            #endregion
+
+            #region Produce a Sequence containing the unique first letter from both product and customer names.
+
+            //var productFirstLetters = from p in ListGenerator.ProductsList
+            //                          select p.ProductName[0];
+            //var customerFirstLetters = from c in ListGenerator.CustomersList
+            //                           select c.CustomerName[0];
+            //var uniqueFirstLetters = productFirstLetters.Union(customerFirstLetters);
+            //foreach (var letter in uniqueFirstLetters)
+            //{
+            //    Console.WriteLine(letter);
+            //}
+
+            #endregion
+
+            #region Create one sequence that contains the common first letter from both product and customer names.
+
+            //var productFirstLetters = from p in ListGenerator.ProductsList
+            //                          select p.ProductName[0];
+            //var customerFirstLetters = from c in ListGenerator.CustomersList
+            //                           select c.CustomerName[0];
+            //var commonFirstLetters = productFirstLetters.Intersect(customerFirstLetters);
+            //foreach (var letter in commonFirstLetters)
+            //{
+            //    Console.WriteLine(letter);
+            //}
+
+            #endregion
+
+            #region  Create one sequence that contains the first letters of product names that are not also first letters of customer names.
+
+            //var productFirstLetters = from p in ListGenerator.ProductsList
+            //                          select p.ProductName[0];
+            //var customerFirstLetters = from c in ListGenerator.CustomersList
+            //                           select c.CustomerName[0];
+            //var productOnlyFirstLetters = productFirstLetters.Except(customerFirstLetters);
+            //foreach (var letter in productOnlyFirstLetters)
+            //{
+            //    Console.WriteLine(letter);
+            //}
+
+
+            #endregion
+
+            #region Create one sequence that contains the last Three Characters in each name of all customers and products, including any duplicates
+
+            //var productLastThreeChars = from p in ListGenerator.ProductsList
+            //                           select p.ProductName.Length >= 3 ? p.ProductName[^3..] : p.ProductName;
+            //var customerLastThreeChars = from c in ListGenerator.CustomersList
+            //                             select c.CustomerName.Length >= 3 ? c.CustomerName[^3..] : c.CustomerName;
+            //var allLastThreeChars = productLastThreeChars.Concat(customerLastThreeChars);
+            //foreach (var str in allLastThreeChars)
+            //{
+            //    Console.WriteLine(str);
+            //}
 
 
             #endregion
