@@ -263,7 +263,57 @@
 
             #endregion
 
-           
+
+            #endregion
+
+            #region LINQ - Quantifiers
+
+            #region Determine if any of the words in dictionary_english.txt (Read dictionary_english.txt into Array of String First) contain the substring 'ei'.
+
+            //bool containsEi = ListGenerator.DictionaryWords.Any(word => word.Contains("ei", StringComparison.OrdinalIgnoreCase));
+            //Console.WriteLine(containsEi);
+
+
+
+            #endregion
+
+            #region Return a grouped a list of products only for categories that have at least one product that is out of stock.
+
+            //var categoriesWithOutOfStockProducts = ListGenerator.ProductsList
+            //    .Where(p => p.UnitsInStock == 0)
+            //    .GroupBy(p => p.Category);
+            //foreach (var categoryGroup in categoriesWithOutOfStockProducts)
+            //    {
+            //    Console.WriteLine($"Category: {categoryGroup.Key}");
+            //    foreach (var product in categoryGroup)
+            //    {
+            //        Console.WriteLine($"\tProduct: {product.ProductName}, Units In Stock: {product.UnitsInStock}");
+            //    }
+            //}
+
+
+
+            #endregion
+
+
+            #region Return a grouped a list of products only for categories that have all of their products in stock.
+
+            //var categoriesWithAllProductsInStock = ListGenerator.ProductsList
+            //    .GroupBy(p => p.Category)
+            //    .Where(g => g.All(p => p.UnitsInStock > 0));
+            //foreach (var categoryGroup in categoriesWithAllProductsInStock)
+            //{
+            //    Console.WriteLine($"Category: {categoryGroup.Key}");
+            //    foreach (var product in categoryGroup)
+            //    {
+            //        Console.WriteLine($"\tProduct: {product.ProductName}, Units In Stock: {product.UnitsInStock}");
+            //    }
+            //}
+
+
+            #endregion
+
+
             #endregion
         }
     }
